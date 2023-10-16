@@ -148,66 +148,6 @@
     </div>
 
     <!-- script for text to speech -->
-    <script>
-      /** @format */
-
-      const textarea = document.querySelector("textarea"),
-        voiceList = document.querySelector("select"),
-        speechBtn = document.querySelector("button");
-
-      const apiUrl =
-        "https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize";
-
-      voices();
-
-      function voices() {
-        // You can load voice options from the API if it provides them
-        // You may need to make a request to the API to get available voices.
-        // This depends on the API you are using.
-
-        // For now, you can set some default voice options
-        voiceList.innerHTML = '<option value="en-US-1">English (US-1)</option>';
-      }
-
-      function textToSpeech(text) {
-        // Use the API to convert text to speech
-        const options = {
-          method: "POST",
-          headers: {
-            "content-type": "application/x-www-form-urlencoded",
-            "X-RapidAPI-Key":
-              "8df68afb72msh70eb88ff2524d5dp1992f6jsn35158121c6e8",
-            "X-RapidAPI-Host": "cloudlabs-text-to-speech.p.rapidapi.com",
-          },
-          body: new URLSearchParams({
-            voice_code: voiceList.value, // Get the selected voice from the dropdown
-            text: text,
-            speed: "1.00",
-            pitch: "1.00",
-            output_type: "audio_url",
-          }),
-        };
-
-        fetch(apiUrl, options)
-          .then((response) => response.json())
-          .then((result) => {
-            // Handle the result, play the audio using an <audio> element
-            const audioUrl = result.result.audio_url;
-
-            const audio = new Audio(audioUrl);
-            audio.play();
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }
-
-      speechBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (textarea.value !== "") {
-          textToSpeech(textarea.value);
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
