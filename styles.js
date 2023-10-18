@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   form: {
-    margin: 35,
+    margin: 15,
   },
   row: {
     marginBottom: 20,
@@ -63,11 +63,14 @@ const styles = StyleSheet.create({
     height: 52,
     color: "#fff",
     fontSize: 17,
-    marginTop: 10,
+    padding: 20,
     backgroundColor: "#675afe",
     transitionDuration: 300,
     alignItems: "center",
     justifyContent: "center",
+  },
+  spacing: {
+    marginVertical: 10,
   },
   "@media (max-width: 400px)": {
     wrapper: {
